@@ -34,3 +34,8 @@ int print_sign(int n);
  * Compute the absolute value of an integer.
  */
 int _abs(int);
+
+/**
+ * Print the last Digit.
+ */
+int print_last_digit(int);
