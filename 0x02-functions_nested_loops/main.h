@@ -24,3 +24,8 @@ int _islower(int c);
  * Check if @c is a letter.
  */
 int _isalpha(int c);
+
+/**
+ * Check if n is positive or negative.
+ */
+int print_sign(int n);
