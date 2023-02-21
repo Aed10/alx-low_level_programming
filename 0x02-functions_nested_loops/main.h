@@ -19,3 +19,8 @@ void print_alphabet_x10(void);
  * Check if @c is lower or not.
  */
 int _islower(int c);
+
+/**
+ * Check if @c is a letter.
+ */
+int _isalpha(int c);
