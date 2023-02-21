@@ -29,3 +29,8 @@ int _isalpha(int c);
  * Check if n is positive or negative.
  */
 int print_sign(int n);
+
+/**
+ * Compute the absolute value of an integer.
+ */
+int _abs(int);
