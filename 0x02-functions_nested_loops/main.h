@@ -9,3 +9,8 @@ int _putchar(char);
  * print_alphabet(): prints the alphabet, in lowercase.
  */
 void print_alphabet(void);
+
+/**
+ * print_alphabet_x10(): prints the alphabet 10 times.
+ */
+void print_alphabet_x10(void);
