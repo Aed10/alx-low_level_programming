@@ -54,3 +54,8 @@ void times_table(void);
  * Addition
  */
 int add(int, int);
+
+/**
+ * start in n arrive to 98.
+ */
+void print_to_98(int n);
