@@ -1,4 +1,5 @@
 #include "main.h"
+#include "Upperchar.c"
 /**
  * leet -  function e,codes a string inyo 1337.
  *@s: The string that we will encoude.
@@ -7,20 +8,21 @@
 
 char *leet(char *s)
 {
-	int i;
+	int i, j;
+	char c[5] = {'A', 'E', 'O', 'T', 'L'};
+	char n[5] = {'4', '3', '0', '7', '1'};
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == 'A' || s[i] == 'a')
-			s[i] = '4';
-		else if (s[i] == 'E' || s[i] == 'e')
-			s[i] = '3';
-		else if  (s[i] == 'O' || s[i] == 'o')
-			s[i] = '0';
-		else if (s[i] == 'T' || s[i] == 't')
-			s[i] = '7';
-		else if (s[i] == 'L' || s[i] == 'l')
-			s[i] = '1';
+		for (j = 0; j < 5; j++)
+		{
+			if (Upperchar(s[i]) == c[j])
+			{
+				s[i] = n[j];
+				break;
+			}
+		}
+		s[i] = s[i];
 	}
 	return (s);
 }
