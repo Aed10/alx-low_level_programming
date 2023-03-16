@@ -1,0 +1,3 @@
+# 0x0C-more_malloc_free
+
+Some exercices about how to creat memory dynamically using malloc...
