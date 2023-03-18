@@ -16,6 +16,6 @@ This subdirectory contains various C programs that demonstrate the basics of C p
 
 ## Usage
 
-Clone the repository to your local machine using git clone https://github.com/<username>/alx-low_level_programming.git.
+Clone the repository to your local machine using git clone https://github.com/`<username>`/alx-low_level_programming.git.
 
 Navigate to the 0x00-hello_world subdirectory.
