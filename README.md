@@ -18,7 +18,3 @@ This repository contains a collection of C programming projects that cover a wid
 - `0x0A-argc_argv`: A project that covers how to use command-line arguments.
 - `0x0B-malloc_free`: A project that covers dynamic memory allocation using malloc and free.
 - `0x0C-more_malloc_free`: A project that builds on the concepts covered in 0x0B.
-
-## Updates
-
-`0x0C-more_malloc_free` has been updated with additional exercises that cover more advanced memory allocation techniques
