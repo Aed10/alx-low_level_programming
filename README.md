@@ -5,7 +5,7 @@ This repository contains a collection of C programming projects that cover a wid
 
 ## Subdirectories
 
-- `0x00-hello_world`: A basic project about ho to print using a specific function `_putchar` to the console.
+- [`0x00-hello_world`](https://github.com/Aed10/alx-low_level_programming/tree/main/0x00-hello_world): A basic project about ho to print using a specific function `_putchar` to the console.
 - `0x01-variables_if_else_while`: A project that covers the use of variables, if/else statements, and loops.
 - `0x02-functions_nested_loops`: A project that covers the basics of functions and nested loops.
 - `0x03-debugging`: A project that focuses on debugging techniques.
