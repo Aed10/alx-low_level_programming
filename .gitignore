@@ -1,5 +1,5 @@
-main.c
-*.swap
 *
 !*/
 !*.*
+main.c
+*.swap
