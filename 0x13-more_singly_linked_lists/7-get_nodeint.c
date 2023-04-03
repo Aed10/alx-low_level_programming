@@ -15,11 +15,15 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	unsigned int n;
 	unsigned int len = listint_len(head);
 
+	/*Check if the Index lower than the length of a list*/
+	if (index > len)
+		return (NULL);
+
 	for (n = 0; n < index && n < len; n++)
 	{
 		head = head->next;
 	}
-	if (head == NULL || index > len)
+	if (head == NULL)
 		return (NULL);
 	node = head;
 	return (node);
