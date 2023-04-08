@@ -18,6 +18,8 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	while (diff != 0)
 	{
+		/*Shift one bit a time and checking LSB */
+
 		count += (diff & 1);
 		diff  >>= 1;
 	}
