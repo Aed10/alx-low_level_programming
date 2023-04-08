@@ -21,7 +21,7 @@ void print_binary(unsigned long int n)
 	}
 
 	/* The case all bit zero */
-	if (!((n >> i) & 1))
+	if ((n >> 0) == 0)
 		_putchar('0');
 
 	for (; i >= 0; i--)
