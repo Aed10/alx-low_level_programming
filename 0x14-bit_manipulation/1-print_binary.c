@@ -14,7 +14,7 @@ void print_binary(unsigned long int n)
 	int i;
 
 	/* Determine the psition of the most significant non-zero bit */
-	for (i = 31; i >= 0; i--)
+	for (i = 63; i >= 0; i--)
 	{
 		if ((n >> i) & 1)
 			break;
