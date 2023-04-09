@@ -11,13 +11,12 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	ssize_t len = 0;
+	int fd, len;
 
 	if (filename == NULL)
 		return (-1);
 
-	fd = open(filename, O_WRONLY | O_CREAT | O_EXCL, 0600);
+	fd = creat(filename, 0600);
 	if (fd == -1)
 		return (-1);
 	if (text_content != NULL)
@@ -25,7 +24,7 @@ int create_file(const char *filename, char *text_content)
 		for (len = 0; text_content[len] != '\0'; len++)
 			;/* Get the length of the text_content. */
 
-		if (write(fd, text_content, len) == -1)
+		if (write(fd, text_content, len + 1) == -1)
 		return (-1);
 
 	}
