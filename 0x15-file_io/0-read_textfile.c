@@ -17,7 +17,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (buffer == NULL || filename == NULL)
 		return (0);
 
-	fd = open(filename, 2);
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
 
@@ -25,7 +25,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	nbread = read(fd, buffer, letters);
 	if (nbread == -1)
 		return (0);
-	if (write(1, buffer, nbread) != nbread)
+	if (write(STDOUT_FILENO, buffer, nbread) != nbread)
 		return (0);
 
 	if (close(fd) == -1)
