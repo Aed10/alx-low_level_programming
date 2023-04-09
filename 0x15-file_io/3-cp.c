@@ -12,7 +12,7 @@
 */
 int main(int ac, char **av)
 {
-	int fd_from, fd_to, nbread, nbwrote;
+	int fd_from, fd_to, nbread, nbwrote, fd_close;
 	char *file_from = av[1], *file_to = av[2];
 	char buffer[1024];
 
@@ -46,7 +46,8 @@ int main(int ac, char **av)
 	}
 	if (close(fd_from) == -1 || close(fd_to) == -1)
 	{
-		dprintf(2, "Error: Can't close fd  %i", (fd_from == -1) ? fd_from : fd_to);
+		fd_close = (fd_from == -1) ? fd_from : fd_to;
+		dprintf(STDERR_FILENO, "Error: Can't close fd  %i", fd_close);
 		exit(100);
 	}
 	return (0);
