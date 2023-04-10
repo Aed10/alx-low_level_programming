@@ -27,7 +27,7 @@ int main(int ac, char **av)
 	while ((nbread = read(fd_from, buffer, sizeof(buffer))) > 0)
 	{
 		nbwrote = write(fd_to, buffer, nbread);
-		if (nbwrote != nbread ||  nbwrote == -1)
+		if (nbwrote != nbread)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
