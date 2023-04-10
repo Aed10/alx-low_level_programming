@@ -26,11 +26,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	if (fd_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-			exit(99);
-	}
+
 	while ((nbread = read(fd_from, buffer, sizeof(buffer))) > 0)
 	{
 		nbwrote = write(fd_to, buffer, nbread);
