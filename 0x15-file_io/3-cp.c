@@ -1,4 +1,6 @@
 #include "main.h"
+#include <sys/stat.h>
+
 /**
 * main - Programme to copy from file_from to file_to.
 *
@@ -20,6 +22,7 @@ int main(int ac, char **av)
 	}
 
 	fd_from = open(file_from, O_RDONLY);
+	umask(002);
 	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_from == -1)
 	{
