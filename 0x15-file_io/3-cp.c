@@ -12,7 +12,7 @@
 */
 int main(int ac, char **av)
 {
-	int fd_from, fd_to, nbread, nbwrote;
+	int fd_from, fd_to, nbread, nbwrote, from, to;
 	char *file_from = av[1], *file_to = av[2];
 	char buffer[1024];
 
@@ -42,14 +42,11 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	if (close(fd_from) == -1)
+	from = close(fd_from);
+	to = close(fd_to);
+	if (from == -1 || to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd  %i\n", fd_from);
-		exit(100);
-	}
-	if (close(fd_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd_to);
+		dprintf(2, "Error: Can't close fd  %d\n", (from == -1) ? from : to);
 		exit(100);
 	}
 	return (0);
