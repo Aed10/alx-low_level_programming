@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(1);
+		exit(97);
 	}
 	fd_from = open(file_from, O_RDONLY);
 	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
