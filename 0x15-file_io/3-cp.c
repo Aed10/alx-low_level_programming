@@ -50,6 +50,7 @@ int main(int ac, char **av)
 	if (close(fd_to) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd_to);
+		exit(100);
 	}
 	return (0);
 }
