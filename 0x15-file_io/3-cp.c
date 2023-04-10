@@ -1,4 +1,7 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 /**
 * main - Programme to copy from file_from to file_to.
 *
@@ -9,7 +12,7 @@
 */
 int main(int ac, char **av)
 {
-	int fd_from, fd_to, nbread, nbwrote, fd_close;
+	int fd_from, fd_to, nbread, nbwrote;
 	char *file_from = av[1], *file_to = av[2];
 	char buffer[1024];
 
