@@ -1,6 +1,4 @@
 #include "main.h"
-#include <sys/stat.h>
-
 /**
 * main - Programme to copy from file_from to file_to.
 *
@@ -20,16 +18,13 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(1);
 	}
-
 	fd_from = open(file_from, O_RDONLY);
-	umask(002);
 	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-
 	while ((nbread = read(fd_from, buffer, sizeof(buffer))) > 0)
 	{
 		nbwrote = write(fd_to, buffer, nbread);
@@ -44,11 +39,14 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	if (close(fd_from) == -1 || close(fd_to) == -1)
+	if (close(fd_from) == -1)
 	{
-		fd_close = (fd_from == -1) ? fd_from : fd_to;
-		dprintf(STDERR_FILENO, "Error: Can't close fd  %i", fd_close);
+		dprintf(STDERR_FILENO, "Error: Can't close fd  %i\n", fd_from);
 		exit(100);
+	}
+	if (close(fd_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd_from);
 	}
 	return (0);
 }
