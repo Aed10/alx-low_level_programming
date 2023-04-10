@@ -44,7 +44,7 @@ int main(int ac, char **av)
 	}
 	from = close(fd_from);
 	to = close(fd_to);
-	if (from == -1 || to == -1)
+	if (from + to != 0)
 	{
 		dprintf(2, "Error: Can't close fd  %i\n", (from == -1) ? fd_from : fd_to);
 		exit(100);
