@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/alpha_10/alx-low_level_programming/0x1A-hash_tables",
-      "program": "/home/alpha_10/alx-low_level_programming/0x1A-hash_tables/build/Debug/outDebug",
+      "cwd": "/home/alpha_10/alx-low_level_programming/0x18-dynamic_libraries",
+      "program": "/home/alpha_10/alx-low_level_programming/0x18-dynamic_libraries/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
