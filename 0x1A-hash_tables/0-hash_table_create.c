@@ -12,18 +12,23 @@
 
 hash_table_t	*hash_table_create(unsigned long int size)
 {
-	hash_table_t *new_hash_table;
-	unsigned long int i;
+	hash_table_t		*new_table;
+	unsigned long int	i;
 
-	new_hash_table = (hash_table_t *)malloc(sizeof(hash_node_t));
-	if (!new_hash_table)
+	new_table = (hash_table_t *)malloc(sizeof(hash_table_t));
+	if (!new_table)
 		return (NULL);
-	new_hash_table->size = size;
-	new_hash_table->array = (hash_node_t **)calloc(new_hash_table->size,
+	new_table->size = size;
+	new_table->array = (hash_node_t **)calloc(new_table->size,
 			sizeof(hash_node_t *));
-	for (i = 0; i < new_hash_table->size; i++)
+	if (!new_table->array)
 	{
-		new_hash_table->array[i] = NULL;
+		free(new_table); /* Free the table if array allocation fails */
+		return (NULL);
 	}
-	return (new_hash_table);
+	for (i = 0; i < new_table->size; i++)
+	{
+		new_table->array[i] = NULL;
+	}
+	return (new_table);
 }
