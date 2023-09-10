@@ -1,27 +1,37 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_set - Adds elements to the hash table.
+ * hash_table_set - adds an element to the hash table
+ * @ht: hash table to add or update the key/value to
+ * @key: key to add or update
+ * @value: value associated with the key
  *
- * @ht: A given hash table.
- * @key: A given string.
- * @value: A value associated with the @key.
- *
- * Return: 1 if it succeeds, 0 otherwise.
+ * Return: 1 if it succeeded, 0 otherwise
  */
-
 int	hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int	index;
-	hash_node_t			*new_node;
+	hash_node_t *new_node, *tmp;
 
-	new_node = malloc(sizeof(hash_node_t));
-	if (!ht || !key || !new_node || *key == '\0' || value == NULL)
-	{
+	new_node = NULL, tmp = NULL;
+	index = 0;
+	if (!ht || !key || !value || !strcmp(key, ""))
 		return (0);
-	}
 	index = key_index((const unsigned char *)key, ht->size);
-	/* Allocate memory for key and value and copy them */
+	tmp = ht->array[index];
+	while (tmp)
+	{
+		if (!strcmp(tmp->key, key))
+		{
+			free(tmp->value);
+			tmp->value = strdup(value);
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+	new_node = malloc(sizeof(hash_node_t));
+	if (!new_node)
+		return (0);
 	new_node->key = strdup(key);
 	if (!new_node->key)
 	{
@@ -35,13 +45,7 @@ int	hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(new_node);
 		return (0);
 	}
-	new_node->next = NULL;
-	/* Handle collisions by linking new_node to existing */
-	/* nodes at the same index */
-	if (ht->array[index] != NULL)
-	{
-		new_node->next = ht->array[index];
-	}
+	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
 	return (1);
 }
